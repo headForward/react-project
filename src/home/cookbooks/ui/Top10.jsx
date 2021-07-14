@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import { Top10Wrap } from "./StyledCookBook";
 import propTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+@withRouter
 class Top10 extends Component {
+  handleClick = (val) => {
+    return () => {
+      console.log("val", val.name);
+      let { history } = this.props;
+      history.push("/detail", { obj: val });
+    };
+  };
   render() {
     console.log("top10", this.props.list);
     return (
@@ -10,9 +19,9 @@ class Top10 extends Component {
         <ul>
           {this.props.list.map((val) => {
             return (
-              <li>
+              <li onClick={this.handleClick(val)}>
                 <div>
-                  <img src={val.img} alt=""/>
+                  <img src={val.img} alt="" />
                 </div>
                 <div>
                   <p>{val.name}</p>

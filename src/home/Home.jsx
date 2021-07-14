@@ -15,15 +15,25 @@ import moreActive from "@a/images/more-active.png";
 import { CookBook } from "./cookbooks/index";
 import { HomeStyled } from "./StyledHome";
 import { Category } from "./category/index";
+import Map from "./map/Map.jsx";
+
+import { More } from "./more/index";
+import { connect } from "react-redux";
+
+const mapStateProps = (state) => {
+  return state.more;
+};
+@connect(mapStateProps, null)
 class Home extends react.Component {
+  1;
   state = {
-    selectedTab: "category",
+    selectedTab: "cookbooks",
     hidden: false,
     fullScreen: true,
   };
   render() {
     return (
-      <HomeStyled>
+      <HomeStyled MapChecked={this.props.MapChecked}>
         <div
           style={
             this.state.fullScreen
@@ -130,7 +140,7 @@ class Home extends react.Component {
                 });
               }}
             >
-              <div>map</div>
+              <Map></Map>
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -160,13 +170,14 @@ class Home extends react.Component {
                 });
               }}
             >
-              <div>more</div>
+              <More></More>
             </TabBar.Item>
           </TabBar>
         </div>
       </HomeStyled>
     );
   }
+  componentDidMount() {}
 }
 
 export default Home;

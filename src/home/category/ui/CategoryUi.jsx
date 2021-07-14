@@ -1,5 +1,5 @@
 import { StyledCategoryUi } from "./StyledCategory";
-import react, { useState } from "react";
+import react from "react";
 
 import Search from "@c/search/Search.jsx";
 import Manu from "./Manu";
