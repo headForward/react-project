@@ -16,6 +16,7 @@ import { CookBook } from "./cookbooks/index";
 import { HomeStyled } from "./StyledHome";
 import { Category } from "./category/index";
 import Map from "./map/Map.jsx";
+import animate from "../hoc/animate";
 
 import { More } from "./more/index";
 import { connect } from "react-redux";
@@ -23,6 +24,7 @@ import { connect } from "react-redux";
 const mapStateProps = (state) => {
   return state.more;
 };
+@animate
 @connect(mapStateProps, null)
 class Home extends react.Component {
   1;

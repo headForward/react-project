@@ -70,7 +70,7 @@ class HotCate extends Component {
   };
   handleClick = (e) => {
     let { history } = this.props;
-    history.push("/list", { title: e.title });
+    history.push("/list", { title: e.title, from: 1 });
   };
   render() {
     return (

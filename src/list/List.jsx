@@ -3,7 +3,7 @@ import { NavBar, Icon } from "antd-mobile";
 import { ListWrap, H2Wrap } from "./StyledList";
 import { connect } from "react-redux";
 import { loadDataAsync } from "../home/cookbooks/actionCreator";
-
+import animate from "../hoc/animate";
 @connect(
   (state) => ({
     list: state.cookbook.list,
@@ -16,6 +16,7 @@ import { loadDataAsync } from "../home/cookbooks/actionCreator";
     };
   }
 )
+@animate
 class List extends react.Component {
   onLeftClick = () => {
     console.log(this);
@@ -30,7 +31,9 @@ class List extends react.Component {
           icon={<Icon type="left" />}
           mode="dark"
         >
-          {this.props.location.state.title}
+          {this.props.location &&
+            this.props.location.state &&
+            this.props.location.state.title}
         </NavBar>
         <ul>
           {this.props.list.map((item, index) => {

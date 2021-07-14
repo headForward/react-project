@@ -5,7 +5,7 @@ import "./assets/styles/reset.css";
 import store from "./store/index";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
-
+import "animate.css";
 ReactDOM.render(
   <Router>
     <Provider store={store}>
